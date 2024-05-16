@@ -6,7 +6,7 @@ type RequestMatcher struct {
 	Body      BodyMatcher         `json:"body,omitempty"`
 	Headers   map[string][]string `json:"headers,omitempty"`
 	KeepAlive bool                `json:"keepAlive,omitempty"`
-	Secure    bool                `json:"secure,omitempty"`
+	Secure    bool                `json:"secure"`
 }
 
 func (m RequestMatcher) WithHeader(key, value string) RequestMatcher {
