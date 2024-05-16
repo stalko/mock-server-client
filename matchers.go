@@ -1,10 +1,12 @@
 package mockserver
 
 type RequestMatcher struct {
-	Method  string              `json:"method,omitempty"`
-	Path    string              `json:"path,omitempty"`
-	Body    BodyMatcher         `json:"body,omitempty"`
-	Headers map[string][]string `json:"headers,omitempty"`
+	Method    string              `json:"method,omitempty"`
+	Path      string              `json:"path,omitempty"`
+	Body      BodyMatcher         `json:"body,omitempty"`
+	Headers   map[string][]string `json:"headers,omitempty"`
+	KeepAlive bool                `json:"keepAlive,omitempty"`
+	Secure    bool                `json:"secure,omitempty"`
 }
 
 func (m RequestMatcher) WithHeader(key, value string) RequestMatcher {
