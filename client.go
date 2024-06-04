@@ -114,3 +114,17 @@ func (c MockServerClient) RegisterExpectation(expectation Expectation) error {
 
 	return nil
 }
+
+func (c MockServerClient) Reset() error {
+	resp, err := c.restyClient.NewRequest().
+		Put("/mockserver/reset")
+
+	if err != nil {
+		return errors.Wrap(err, "error calling reset endpoint")
+	}
+
+	if resp.StatusCode() != http.StatusOK {
+		return errors.Wrap(errors.New("status was expected to be 200"), "reset failed")
+	}
+	return nil
+}
