@@ -18,9 +18,10 @@ func (m RequestMatcher) WithHeader(key, value string) RequestMatcher {
 }
 
 type BodyMatcher struct {
-	Type      string                 `json:"type,omitempty"`
-	JSON      map[string]interface{} `json:"json,omitempty"`
-	MatchType string                 `json:"matchType,omitempty"`
+	Type        string                 `json:"type,omitempty"`
+	JSON        map[string]interface{} `json:"json,omitempty"`
+	MatchType   string                 `json:"matchType,omitempty"`
+	ContentType string                 `json:"contentType,omitempty"`
 }
 
 const (
